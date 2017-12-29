@@ -9,5 +9,5 @@ import scrapy
 
 
 class hourstudy(prestring,poststring):
-    print ("aaaa")
-    print ('bbbb')
+	print (prestring)
+	print (poststring)
