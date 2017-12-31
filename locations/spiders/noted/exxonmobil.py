@@ -28,7 +28,7 @@ result returned from exxonmobil no matter how big the boundingbox is.
 """
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import re
 
 
@@ -161,7 +161,7 @@ class ExxonMobilSpider(scrapy.Spider):
                     "lat": float(location['Latitude']),
                     "lon": float(location['Longitude']),
                 }
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)
 
     def store_hours(self, hours):
         """

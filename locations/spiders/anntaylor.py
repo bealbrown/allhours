@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 
@@ -35,10 +35,10 @@ class AnntaylorSpider(scrapy.Spider):
         if hours != []:
             hours = " ; ".join(hours)
             properties['opening_hours'] = hours
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
         raw = hours
         formatted = hours
-        yield hourstudy(raw,formatted) 
+        yield inputoutput(raw,formatted) 
 
     def parse_city_stores(self, response):
         stores = response.xpath('//h3[@class="Teaser-title Link Link--teaser Heading--h5"]/a/@href').extract()

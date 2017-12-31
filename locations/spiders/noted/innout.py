@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class TemplateSpider(scrapy.Spider):
@@ -36,4 +36,4 @@ class TemplateSpider(scrapy.Spider):
                 'lat': float(lat),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

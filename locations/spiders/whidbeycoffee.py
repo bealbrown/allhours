@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_MAPPING = {
     "Mon": "Mo",
@@ -110,7 +110,7 @@ class WhidbeycoffeeSpider(scrapy.Spider):
                 hours = self.parse_hours(store.xpath('./following-sibling::p[2]/text()').extract()[2:])
           
             formatted = hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
-                # yield hourstudy(**properties)
+                # yield inputoutput(**properties)

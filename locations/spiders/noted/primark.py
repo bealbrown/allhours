@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import json
 # import unicodedata
 

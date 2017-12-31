@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class MisterCarWashSpider(scrapy.Spider):
@@ -62,7 +62,7 @@ class MisterCarWashSpider(scrapy.Spider):
 
             phone = self.phone_normalize(wash['infoContent'][wash['infoContent'].find('<b>Phone:</b>')+13:wash['infoContent'].find('/div',wash['infoContent'].find('<b>Phone:</b>'))-1])
 
-            # yield hourstudy(
+            # yield inputoutput(
             #     lat=float(wash['lat']),
             #     lon=float(wash['lng']),
             #     phone=phone,
@@ -80,4 +80,4 @@ class MisterCarWashSpider(scrapy.Spider):
 
             raw = wash['loc_hours']
             formatted = opening_hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)

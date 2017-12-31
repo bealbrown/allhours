@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 from scrapy.http import HtmlResponse
 
 class JusticeSpider(scrapy.Spider):
@@ -46,4 +46,4 @@ class JusticeSpider(scrapy.Spider):
                 if unp[key]:
                     properties[key] = unp[key]
 
-            yield hourstudy(**properties)             
+            yield inputoutput(**properties)             

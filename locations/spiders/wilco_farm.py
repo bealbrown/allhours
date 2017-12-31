@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class WilcoFarmSpider(scrapy.Spider):
     name = "wilcofarm"
@@ -31,4 +31,4 @@ class WilcoFarmSpider(scrapy.Spider):
 
             raw = item['storeHours']
             formatted = item['storeHours']
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)

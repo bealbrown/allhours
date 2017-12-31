@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -121,4 +121,4 @@ class MarshallsSpider(scrapy.Spider):
                 props['opening_hours'] = opening_hours
                 props.pop('Hours', None)
 
-            yield hourstudy(**props)
+            yield inputoutput(**props)

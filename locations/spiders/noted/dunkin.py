@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import json
 
 
@@ -37,4 +37,4 @@ class DunkinSpider(scrapy.Spider):
 
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

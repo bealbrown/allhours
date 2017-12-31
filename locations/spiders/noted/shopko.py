@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class ShopkoSpider(scrapy.Spider):
@@ -40,4 +40,4 @@ class ShopkoSpider(scrapy.Spider):
              'lat': float(response.xpath('/html/body/div[1]/div[2]/div/script[3]/text()').extract()[0].split('store.lat = ')[1].split(';')[0]),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

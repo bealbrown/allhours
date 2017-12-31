@@ -2,7 +2,7 @@
 import re
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class KohlsSpider(scrapy.Spider):

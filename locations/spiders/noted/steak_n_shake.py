@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import json
 
 daysKey = {
@@ -117,7 +117,7 @@ class SteakNShakeSpider(scrapy.Spider):
             address = item["address"]["address1"] + " " + address2
             address = address.strip()
 
-            yield hourstudy(
+            yield inputoutput(
                 ref=item["id"],
                 name=item["name"],
                 opening_hours=openingHoursString.strip(),

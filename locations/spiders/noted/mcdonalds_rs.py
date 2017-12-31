@@ -2,7 +2,7 @@ import json
 import re
 import scrapy
 from scrapy.selector import Selector
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class McDonaldsRSSpider(scrapy.Spider):
     name = "mcdonalds_rs"
@@ -50,5 +50,5 @@ class McDonaldsRSSpider(scrapy.Spider):
                 'postcode': postalCode
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
             

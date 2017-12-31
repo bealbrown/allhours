@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class WellsFargoSpider(scrapy.Spider):
@@ -91,10 +91,10 @@ class WellsFargoSpider(scrapy.Spider):
 
             raw = (hours_elem)
             formatted = opening_hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
             
-            # yield hourstudy(
+            # yield inputoutput(
             #     lat=lat,
             #     lon=lon,
             #     addr_full=result_elem.xpath('.//div[@itemprop="addressRegion"]/text()').extract_first(),

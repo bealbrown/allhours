@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 
@@ -90,10 +90,10 @@ class AsdaSpider(scrapy.Spider):
     def parse_shop(self, response):
         times = self.store_hours(response.xpath('//div[@id="opening-times"]//tr/td[2]/text()').extract())
 
-        yield hourstudy(response.xpath('//div[@id="opening-times"]//tr/td[2]/text()').extract(),times)
+        yield inputoutput(response.xpath('//div[@id="opening-times"]//tr/td[2]/text()').extract(),times)
 
 
-        # yield hourstudy(
+        # yield inputoutput(
         #     opening_hours=times,
         #     lat=response.meta['lat'],
         #     lon=response.meta['lon'],

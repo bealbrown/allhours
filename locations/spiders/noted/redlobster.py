@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = [
     "Su",
@@ -93,4 +93,4 @@ class RedLobsterSpider(scrapy.Spider):
                 'lat': location['latitude'],
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

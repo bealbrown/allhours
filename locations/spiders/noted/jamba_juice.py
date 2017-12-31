@@ -2,7 +2,7 @@ import json
 import scrapy
 from urllib import parse
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 DAYS = {
@@ -106,4 +106,4 @@ class JambaJuiceSpider(scrapy.Spider):
 
             props.update({key: store_info[key] for key in sieve_out})
 
-            yield hourstudy(**props)
+            yield inputoutput(**props)

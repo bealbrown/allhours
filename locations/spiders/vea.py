@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class VeaSpider(scrapy.Spider):
@@ -24,9 +24,9 @@ class VeaSpider(scrapy.Spider):
                 'phone': store['telefonos'],
                 'ref': str(store['codigo']).replace('SM ', ''),
             }
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
 
             raw = store['horarios']
             formatted = sstore['horarios']
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 

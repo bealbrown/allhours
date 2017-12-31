@@ -1241,7 +1241,7 @@ CITIES = [
 {"zip":8351,"name":"TRAHUNCURA","state":"NEUQUEN","lat":-38.15,"lon":-70.1139},
 {"zip":8353,"name":"CHACAY MELEHUE","state":"NEUQUEN","lat":-37.2333,"lon":-70.3667}
 ];
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 DAYS=['Mo','Tu','We','Th','Fr','Sa','Su']
 
 class CarrefourSpider(scrapy.Spider):
@@ -1308,7 +1308,7 @@ class CarrefourSpider(scrapy.Spider):
             id_num=shop.xpath('./div[@class="id"]/text()').extract_first()
             time_data=response.xpath('//div[@id="store-detail-'+id_num+'"]')
             dates=time_data.xpath('./div[@class="timetable"]//td[@class="hour"]/text()').extract()
-            yield hourstudy(
+            yield inputoutput(
                 lat=float(shop.xpath('./div[@class="geodata"]/@data-lat').extract_first()),
                 lon=float(shop.xpath('./div[@class="geodata"]/@data-lng').extract_first()),
                 phone=time_data.xpath('./div/div[@class="tel"]/text()').extract_first().strip(),

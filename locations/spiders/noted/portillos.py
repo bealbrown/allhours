@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class PortillosSpider(scrapy.Spider):
@@ -50,4 +50,4 @@ class PortillosSpider(scrapy.Spider):
             'lat': float(store_data['Lat']),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

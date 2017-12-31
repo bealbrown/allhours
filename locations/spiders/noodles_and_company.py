@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class NoodlesAndCompanySpider(scrapy.Spider):
@@ -122,7 +122,7 @@ class NoodlesAndCompanySpider(scrapy.Spider):
         if opening_hours:
             raw = hours
             formatted = opening_hours
-            yield hourstudy(raw, formatted)
+            yield inputoutput(raw, formatted)
         
 
 

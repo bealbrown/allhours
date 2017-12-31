@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 STATES = [
     'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL',
@@ -95,4 +95,4 @@ class BostonMarketSpider(scrapy.Spider):
                 "website": store['url'],
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

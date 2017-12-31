@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CoastalFarmSpider(scrapy.Spider):
@@ -27,4 +27,4 @@ class CoastalFarmSpider(scrapy.Spider):
                 'website': data['url']
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

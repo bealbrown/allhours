@@ -2,7 +2,7 @@
 import scrapy
 import unicodedata
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 regex = r"(^\D)"
 regex_time = r"(1[0-2]|0[1-9]|[1-9]):[0-5]\d\s?[AaPp][Mm]"
@@ -126,7 +126,7 @@ class MonicalsSpider(scrapy.Spider):
 
         opening_hours = ', '.join('{} : {}'.format(*t) for t in zip(day, hour))
 
-        # yield hourstudy(
+        # yield inputoutput(
         #     lat=lat,
         #     lon=lon,
         #     addr_full=address,
@@ -142,6 +142,6 @@ class MonicalsSpider(scrapy.Spider):
 
         raw = zip(day, hour)
         formatted = opening_hours
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 

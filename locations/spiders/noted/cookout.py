@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CookoutSpider(scrapy.Spider):
@@ -99,7 +99,7 @@ class CookoutSpider(scrapy.Spider):
             if phone:
                 properties['phone'] = phone
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         else:
             self.logger.info("No results")

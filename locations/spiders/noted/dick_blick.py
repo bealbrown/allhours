@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class DickBlickSpider(scrapy.Spider):
@@ -38,7 +38,7 @@ class DickBlickSpider(scrapy.Spider):
         if opening_hours:
             properties['opening_hours'] = '; '.join(opening_hours)
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse_state(self, response):
         urls = response.xpath('//div/ul[@class="storelist"]/li/a/@href').extract()

@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CircleKSpider(scrapy.Spider):
@@ -30,4 +30,4 @@ class CircleKSpider(scrapy.Spider):
                 'city': data['city'],
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

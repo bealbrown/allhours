@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -53,7 +53,7 @@ class SchnucksSpider(scrapy.Spider):
     def parse(self, response):
         shops = json.loads(response.text)
         for shop in shops['records']:
-            yield hourstudy(
+            yield inputoutput(
                 website=shop['website'],
                 ref=shop['name'],
                 opening_hours=self.store_hours(shop['hoursOfOperation']),

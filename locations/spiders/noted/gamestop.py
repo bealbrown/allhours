@@ -2,7 +2,7 @@
 import json
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class GamestopSpider(scrapy.Spider):
@@ -34,7 +34,7 @@ class GamestopSpider(scrapy.Spider):
 		# iterate items
 		for item in jsondata['d']['results']:
 			# print str(item['Address1'])
-			yield hourstudy(
+			yield inputoutput(
 				ref=item['EntityID'],
 				lat=float(item['Latitude']),
 				lon=float(item['Longitude']),

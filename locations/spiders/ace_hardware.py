@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_MAPPING = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -54,7 +54,7 @@ class AceHardwareSpider(scrapy.Spider):
         if hours:
             properties['opening_hours'] = hours
             formatted = hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
     def parse(self, response):
         data = response.body_as_unicode()

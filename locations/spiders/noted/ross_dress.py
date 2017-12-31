@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class RossDressSpider(scrapy.Spider):
@@ -112,7 +112,7 @@ class RossDressSpider(scrapy.Spider):
             if hours:
                 properties['opening_hours'] = self.store_hours(hours)
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         else:
             self.logger.info("No results")

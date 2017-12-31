@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CulversSpider(scrapy.Spider):
@@ -79,7 +79,7 @@ class CulversSpider(scrapy.Spider):
             if phone:
                 properties['phone'] = phone.extract_first()
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         else:
             self.logger.info("No results")

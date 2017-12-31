@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class WalmartSpider(scrapy.Spider):
@@ -64,7 +64,7 @@ class WalmartSpider(scrapy.Spider):
                     open_date[3:5],
                 )
 
-            # yield hourstudy(
+            # yield inputoutput(
             #     lat=store['geoPoint']['latitude'],
             #     lon=store['geoPoint']['longitude'],
             #     ref=str(store['id']),
@@ -84,7 +84,7 @@ class WalmartSpider(scrapy.Spider):
 
             raw = store['operationalHours']
             formatted = opening_hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
             yield scrapy.Request(

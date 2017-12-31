@@ -2,7 +2,7 @@
 import scrapy
 import json
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class McDonalsFRSpider(scrapy.Spider):
@@ -90,7 +90,7 @@ class McDonalsFRSpider(scrapy.Spider):
             # if opening_hours:
             #     properties['opening_hours'] = opening_hours
 
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
 
             print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
             print (data['datasheet']['descList'])

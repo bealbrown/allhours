@@ -2,7 +2,7 @@
 import json
 import scrapy
 from urllib import parse
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class ArbysSpider(scrapy.Spider):

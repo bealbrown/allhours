@@ -1,5 +1,5 @@
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import re
 
 regex = r"(\D+,\s\D+-\d{5}).*"  # city, state, zip
@@ -115,7 +115,7 @@ class HannafordSpider(scrapy.Spider):
 
         opening_hours = self.combine_hours(hours)
 
-        yield hourstudy(
+        yield inputoutput(
             ref=response.url,
             name=name,
             lat=lat,

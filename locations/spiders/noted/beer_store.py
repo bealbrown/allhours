@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BeerStoreSpider(scrapy.Spider):
@@ -27,4 +27,4 @@ class BeerStoreSpider(scrapy.Spider):
                 'addr_full': description[:description.find(end_str)]
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

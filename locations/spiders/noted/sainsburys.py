@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 DAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 
 class SainsburysSpider(scrapy.Spider):
@@ -53,4 +53,4 @@ class SainsburysSpider(scrapy.Spider):
                     "lon": float( store['location']['lon']),
                     "lat": float(store['location']['lat']),
                 }
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)

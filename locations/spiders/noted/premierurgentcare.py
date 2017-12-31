@@ -2,7 +2,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class DifferentHours(Exception):
     pass
@@ -44,4 +44,4 @@ class PremierurgentcareSpider(scrapy.Spider):
                 'lon': float(store['lng']),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

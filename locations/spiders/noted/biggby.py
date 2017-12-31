@@ -4,7 +4,7 @@ import scrapy
 from xml.etree import ElementTree as ET
 from scrapy import Selector
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BiggbySpider(scrapy.Spider):
@@ -24,7 +24,7 @@ class BiggbySpider(scrapy.Spider):
 
 		# iterate items
 		for item in root:
-			yield hourstudy(
+			yield inputoutput(
 				ref=item.attrib['pid'],
 				lat=float(item.attrib['lat']),
 				lon=float(item.attrib['lng']),

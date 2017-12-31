@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class TjmaxxSpider(scrapy.Spider):
@@ -37,10 +37,10 @@ class TjmaxxSpider(scrapy.Spider):
         #     "lon": float(response.xpath('//form[@id="directions-form"]/input[@name="long"]/@value').extract_first()),
         # }
 
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
         raw = hours[0]
         formatted = self.process_hours(hours[0])
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 
     def process_hours(self, hours):

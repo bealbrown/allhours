@@ -3,7 +3,7 @@ import scrapy
 import json
 import traceback
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 URL = 'http://www.beaconandbridge.com/wp-admin/admin-ajax.php'
 HEADERS = {
@@ -44,4 +44,4 @@ class BeaconAndBridgeSpider(scrapy.Spider):
 
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

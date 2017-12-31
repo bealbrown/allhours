@@ -1,6 +1,6 @@
 import json
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 def process_hours(hours):
@@ -96,9 +96,9 @@ class TargetSpider(scrapy.Spider):
                     properties['opening_hours'] = processed_hours
                     raw = store['OperatingHours']
                     formatted = processed_hours
-                    yield hourstudy(raw,formatted)
+                    yield inputoutput(raw,formatted)
 
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
 
 
 

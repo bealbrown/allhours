@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class McDonaldsSGSpider(scrapy.Spider):
     name = "mcdonalds_sg"
@@ -45,5 +45,5 @@ class McDonaldsSGSpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
   

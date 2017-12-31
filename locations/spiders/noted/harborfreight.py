@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 REPLACES={
     'Store hours:':'',
@@ -66,7 +66,7 @@ class HarborFreightSpider(scrapy.Spider):
                 hours=hours.replace(key,REPLACES[key])
             hours=hours.strip().strip(';')
             
-        yield hourstudy(
+        yield inputoutput(
             lat=float(shop.xpath('.//@latitude').extract_first()),
             lon=float(shop.xpath('.//@longitude').extract_first()),
             phone=self.phone_normalize(shop.xpath('.//@phone').extract_first()),

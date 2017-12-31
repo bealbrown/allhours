@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import json
 class CVSSpider(scrapy.Spider):
 
@@ -66,7 +66,7 @@ class CVSSpider(scrapy.Spider):
 
         if hours:
             formatted = hours
-            yield hourstudy(raw, formatted)
+            yield inputoutput(raw, formatted)
 
 
     def parse_state_stores(self, response):

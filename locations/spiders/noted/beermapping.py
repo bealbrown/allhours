@@ -1,6 +1,6 @@
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class BeerMappingSpider(scrapy.Spider):
     name = "beermapping"
@@ -60,5 +60,5 @@ class BeerMappingSpider(scrapy.Spider):
                 'website': data['url']
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 

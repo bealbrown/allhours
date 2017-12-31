@@ -3,7 +3,7 @@ import scrapy
 #import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class AppleSpider(scrapy.Spider):
     name = "apple"
@@ -62,7 +62,7 @@ class AppleSpider(scrapy.Spider):
                 props['lon'] = pos[2]
 
 
-            # yield hourstudy(
+            # yield inputoutput(
             #     **props,
             #     website=response.url,
             #     ref=response.xpath('//meta[@property="og:title"]/@content').extract_first(),
@@ -72,4 +72,4 @@ class AppleSpider(scrapy.Spider):
 
             raw = response.xpath('//div[contains(@class,"store-hours-row")]/div/text()').extract()
             formatted = self.store_hours(response.xpath('//div[contains(@class,"store-hours-row")]/div/text()').extract())
-            yield hourstudy(raw,formatted) 
+            yield inputoutput(raw,formatted) 

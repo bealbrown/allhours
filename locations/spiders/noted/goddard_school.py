@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class GoddardSchoolSpider(scrapy.Spider):
@@ -69,4 +69,4 @@ class GoddardSchoolSpider(scrapy.Spider):
         if hours_elem:
             properties['opening_hours'] = self.store_hours(hours_elem[0].extract())
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

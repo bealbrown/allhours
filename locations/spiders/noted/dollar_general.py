@@ -2,7 +2,7 @@
 import scrapy
 import json
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 STATES = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
           'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
@@ -87,7 +87,7 @@ class DollarGeneralSpider(scrapy.Spider):
                     "postcode": postalcode
                 }
 
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)
 
     def hours(self, data):
         hours = []

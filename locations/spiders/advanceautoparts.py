@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class AdvanceautopartsSpider(scrapy.Spider):
 
     name = "advanceautoparts"
@@ -35,7 +35,7 @@ class AdvanceautopartsSpider(scrapy.Spider):
 
             
             formatted = hours
-            yield hourstudy(raw,formatted) 
+            yield inputoutput(raw,formatted) 
 
 
     def parse_city_stores(self, response):

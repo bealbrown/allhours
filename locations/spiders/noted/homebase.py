@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class ArgosSpider(scrapy.Spider):
 
     name = "homebase"
@@ -31,7 +31,7 @@ class ArgosSpider(scrapy.Spider):
         if hours != []:
             properties['opening_hours'] = "; ".join(x for x in hours)
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse(self, response):
         urls = response.xpath('//div[@class="store-listing__state__list alpha"]/ul/li/a/@href').extract()

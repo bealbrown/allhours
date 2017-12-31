@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class WhataburgerSpider(scrapy.Spider):
@@ -77,7 +77,7 @@ class WhataburgerSpider(scrapy.Spider):
 
         raw = (hours)
         formatted = self.store_hours(hours)
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 
 

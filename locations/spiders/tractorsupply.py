@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class TractorSupplySpider(scrapy.Spider):
@@ -109,4 +109,4 @@ class TractorSupplySpider(scrapy.Spider):
 
         raw = data['openingHours']
         formatted = self.store_hours(data['openingHours']),
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)

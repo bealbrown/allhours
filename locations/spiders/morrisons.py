@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = {
     'mon': 'Mo',
@@ -55,11 +55,11 @@ class MorrisonsSpider(scrapy.Spider):
         raw = data['openingTimes']
         if hours:
             formatted = hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
 
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
 
 
 

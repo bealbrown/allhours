@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class StarwoodHotelsSpider(scrapy.Spider):
@@ -70,4 +70,4 @@ class StarwoodHotelsSpider(scrapy.Spider):
             props['website'] = response.url
             props['ref'] = response.xpath('//meta[@property="og:title"]/@content').extract_first()
 
-            yield hourstudy(**props)
+            yield inputoutput(**props)

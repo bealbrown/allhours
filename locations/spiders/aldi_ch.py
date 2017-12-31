@@ -2,7 +2,7 @@
 import scrapy
 import json
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class AldiCHSpider(scrapy.Spider):
     name = 'aldi_ch'
@@ -41,7 +41,7 @@ class AldiCHSpider(scrapy.Spider):
 
             raw = hours_data
             formatted = self.hours(hours_data)
-            yield hourstudy(raw,formatted) 
+            yield inputoutput(raw,formatted) 
 
         if 'zoom' in response.meta.keys():
             zoom = response.meta["zoom"]

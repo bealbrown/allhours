@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class LoblawsSpider(scrapy.Spider):
@@ -102,4 +102,4 @@ class LoblawsSpider(scrapy.Spider):
             if 'todaysHours' in data['details']:
                 properties['opening_hours'] = self.store_hours(data['details']['todaysHours'])
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

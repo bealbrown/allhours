@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class SeriousCoffeeSpider(scrapy.Spider):
 
@@ -105,7 +105,7 @@ class SeriousCoffeeSpider(scrapy.Spider):
         if hours:
             properties['opening_hours'] = hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse_city_stores(self, response):
         stores = response.xpath('//div[@class="cms_ldirectory_item"]/div[@class="cms_ldirectory_image"]/a/@href').extract()

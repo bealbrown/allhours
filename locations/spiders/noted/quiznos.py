@@ -4,7 +4,7 @@ import json
 import re
 import traceback
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 URL = "http://restaurants.quiznos.com"
 
@@ -67,7 +67,7 @@ class QuiznosSpider(scrapy.Spider):
 
         for store in stores:
 
-            yield hourstudy(
+            yield inputoutput(
                 lat=store.get('latitude'),
                 lon=store.get('longitude'),
                 ref=str(store.get('storeid')),

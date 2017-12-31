@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class DairyQueenSpider(scrapy.Spider):
@@ -29,7 +29,7 @@ class DairyQueenSpider(scrapy.Spider):
             'lat': lat,
             'lon': lng
         }
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse(self, response):
 

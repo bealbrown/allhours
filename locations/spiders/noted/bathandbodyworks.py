@@ -5,7 +5,7 @@ import json
 import re
 import random
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 day_formats = {
     "MON": "Mo", 
@@ -175,7 +175,7 @@ class BathAndBodyWorksSpider(scrapy.Spider):
 
             properties['ref'] = hashlib.md5(ref_input.encode('utf-8')).hexdigest()
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
     def parse_us(self, response):
         results = json.loads(response.body_as_unicode())
@@ -202,4 +202,4 @@ class BathAndBodyWorksSpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

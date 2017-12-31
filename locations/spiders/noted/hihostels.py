@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class HiHostelsSpider(scrapy.Spider):
@@ -39,4 +39,4 @@ class HiHostelsSpider(scrapy.Spider):
             'lat': float(response.xpath('//*[@id ="lat"]/@value').extract()[0]),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

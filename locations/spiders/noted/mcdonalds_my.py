@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class McDonaldsMYSpider(scrapy.Spider):
     name = "mcdonalds_my"
@@ -63,5 +63,5 @@ class McDonaldsMYSpider(scrapy.Spider):
 
             index = index + 1
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 

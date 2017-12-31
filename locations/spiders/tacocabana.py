@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class TacocabanaSpider(scrapy.Spider):
     name = "tacocabana"
@@ -30,10 +30,10 @@ class TacocabanaSpider(scrapy.Spider):
             #     "postcode"      : store["zip_code"]
             # }
             
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
             raw = store["hours"]
             formatted = store["hours"]
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
         
         else:
             self.logger.info("No results")

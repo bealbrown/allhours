@@ -2,7 +2,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 HOURS_XPATH = '//span[@class="c-location-hours-today js-location-hours"]/@data-days'
 

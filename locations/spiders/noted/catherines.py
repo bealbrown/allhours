@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import json
 
 
@@ -32,7 +32,7 @@ class CatherinesSpider(scrapy.Spider):
             'lon':json_data[0]['geo']['longitude'] ,
          }
          properties['opening_hours'] =  json_data[0]['openingHours'],
-         yield hourstudy(**properties)
+         yield inputoutput(**properties)
        except ValueError:
         return
 

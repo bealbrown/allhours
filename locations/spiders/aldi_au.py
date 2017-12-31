@@ -55,7 +55,7 @@ class AldiAUSpider(scrapy.Spider):
 
             raw = hours_data
             formatted = self.hours(hours_data)
-            yield hourstudy(raw,formatted) 
+            yield inputoutput(raw,formatted) 
 
 
         if 'zoom' in response.meta.keys():

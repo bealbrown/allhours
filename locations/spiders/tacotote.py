@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = {
     '&nbsp;':' ',
@@ -86,7 +86,7 @@ class MisterCarWashSpider(scrapy.Spider):
 
         for taco in tacos:
 
-            # yield hourstudy(
+            # yield inputoutput(
             #     lat=float(taco.xpath('.//lat/text()').extract_first()),
             #     lon=float(taco.xpath('.//lng/text()').extract_first()),
             #     phone=taco.xpath('.//phone/text()').extract_first(),
@@ -96,7 +96,7 @@ class MisterCarWashSpider(scrapy.Spider):
             # )
             raw = taco.xpath('.//fulladdress/text()').extract_first().replace('<p>','').replace('</p>','')
             formatted = self.store_hours(taco.xpath('.//fulladdress/text()').extract_first().replace('<p>','').replace('</p>',''))
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
             

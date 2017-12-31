@@ -3,7 +3,7 @@ import json
 import re
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 SCRIPT_JSON = 'normalize-space(//script[@type="application/ld+json"]/text())'

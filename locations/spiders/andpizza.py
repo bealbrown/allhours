@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class TacocabanaSpider(scrapy.Spider):
@@ -84,8 +84,8 @@ class TacocabanaSpider(scrapy.Spider):
             #     'opening_hours': store_hours,
             # }
 
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
 
             raw = store.css('div.hours *::text').extract()
             formatted = store_hours
-            yield hourstudy(raw,formatted) 
+            yield inputoutput(raw,formatted) 

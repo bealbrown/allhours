@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class PerkinsSpider(scrapy.Spider):
@@ -96,5 +96,5 @@ class PerkinsSpider(scrapy.Spider):
 
         if opening_hours:
             formatted = opening_hours
-            yield hourstudy(raw, formatted)
+            yield inputoutput(raw, formatted)
 

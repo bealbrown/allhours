@@ -1,7 +1,7 @@
 import json
 import scrapy
 from urllib import parse
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 MAPQUEST_KEY = 'ybe4KeKi8ACKY0eVqJXAw2QxTKnxnor8'
@@ -68,7 +68,7 @@ class WawaSpider(scrapy.Spider):
 
             raw = (loc)
             formatted = opening_hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
             # properties = {
@@ -88,4 +88,4 @@ class WawaSpider(scrapy.Spider):
             #     'opening_hours': opening_hours
             # }
 
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)

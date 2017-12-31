@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class McLocalizer(scrapy.Spider):
@@ -48,4 +48,4 @@ class McLocalizer(scrapy.Spider):
             properties["name"] = name
             properties["addr_full"] = data['name'][data['name'].find("<small>"):-8][8:]
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class KrogerSpider(scrapy.Spider):
@@ -117,7 +117,7 @@ class KrogerSpider(scrapy.Spider):
             bounding_box['min_lon'] = min(bounding_box['min_lon'], lon_lat[0])
             bounding_box['max_lon'] = max(bounding_box['max_lon'], lon_lat[0])
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         if data:
             box_corners = [

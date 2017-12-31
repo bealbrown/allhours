@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class WhiteCastleSpider(scrapy.Spider):
     name = "whitecastle"
@@ -93,5 +93,5 @@ class WhiteCastleSpider(scrapy.Spider):
 
                 raw = store.get('timetable')
                 formatted = self.store_hours(store.get('timetable'))
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)
 

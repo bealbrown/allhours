@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class LovinghutSpider(scrapy.Spider):
@@ -93,7 +93,7 @@ class LovinghutSpider(scrapy.Spider):
 
         product['opening_hours'] = opening_hours
 
-        yield hourstudy(**product)
+        yield inputoutput(**product)
 
     def _clean_text(self, text):
         return re.sub("[\r\n\t]", "", text).strip()

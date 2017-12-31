@@ -1,5 +1,5 @@
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 regex_street = r"^(\s?\d{1,5}\s[a-zA-Z]+\.?\s?\#?\d{0,5}[a-zA-Z]{0,10}" \
                r"\.?\s?\#?\d{0,5}[a-zA-Z]{0,10}\.?\s?\#?\d{0,5}[a-zA-Z]{0,10})"
@@ -43,7 +43,7 @@ class BobsSpider(scrapy.Spider):
             addr_full = "{} {}, WA {}".format(street, city, postcode).strip()
             phone = phones[i].replace('.', ' ').strip()
 
-            yield hourstudy(
+            yield inputoutput(
                 ref=name,
                 name=name,
                 street=street,

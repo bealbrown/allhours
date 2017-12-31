@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class JohnLewisSpider(scrapy.Spider):
@@ -43,7 +43,7 @@ class JohnLewisSpider(scrapy.Spider):
         # if hours:
         #     properties['opening_hours'] = hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse(self, response):
         urls = response.xpath('//section[@class="shop-list"]/div[@class="shop-column"]/div[@class="shop-letter"]/ul/li/a/@href').extract()

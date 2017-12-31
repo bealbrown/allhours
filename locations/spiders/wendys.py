@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_MAPPING = {
     'Monday': 'Mo',
@@ -84,13 +84,13 @@ class WendysSpider(scrapy.Spider):
 
         raw = (response.xpath('//div[@class="hours"]/ol/li'))
         formatted = hours
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
         
         # if hours:
         #     properties['opening_hours'] = hours
 
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
 
     def parse_city_stores(self, response):
         stores = response.xpath('//div[@class="col-xs-12 col-lg-10 col-lg-offset-1"]/article/ul/li/a/@href').extract()

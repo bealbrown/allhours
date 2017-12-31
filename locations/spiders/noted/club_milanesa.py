@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 base_url = 'https://www.elclubdelamilanesa.com/'
 
@@ -89,7 +89,7 @@ class MilanesaSpider(scrapy.Spider):
 
         name = "elclubdelamilanesa - " + name
 
-        yield hourstudy(
+        yield inputoutput(
             name=name,
             addr_full=address,
             street=street,

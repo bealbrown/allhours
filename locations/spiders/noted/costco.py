@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS_NAME = {
     'm': 'Mo',
@@ -96,7 +96,7 @@ class CostcoSpider(scrapy.Spider):
                 'opening_hours': self.store_hours(store.get('warehouseHours')),
             }
 
-            yield hourstudy(**props)
+            yield inputoutput(**props)
 
     def _clean_text(sel, text):
         return re.sub("[\r\n\t]", "", text).strip()

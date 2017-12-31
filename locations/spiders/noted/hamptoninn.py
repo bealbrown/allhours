@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class HamptonInnSpider(scrapy.Spider):
@@ -40,4 +40,4 @@ class HamptonInnSpider(scrapy.Spider):
                 'lon': float(response.xpath('//meta[@name="geo.position"]/@content').extract_first().split(';')[1]),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

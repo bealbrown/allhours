@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class SuperStoreSpider(scrapy.Spider):
@@ -103,4 +103,4 @@ class SuperStoreSpider(scrapy.Spider):
                 if data['details']['todaysHours']:
                     properties['opening_hours'] = self.store_hours(data['details']['todaysHours'])
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

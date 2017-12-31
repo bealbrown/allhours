@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 DAYS = {
     'mo': 'Mo',
     'tu': 'Tu',
@@ -71,9 +71,9 @@ class TescoSpider(scrapy.Spider):
                 properties['opening_hours'] = opening_hours
                 raw = store['location']['openingHours'][0]['standardOpeningHours']
                 formatted = opening_hours
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)
 
-            # yield hourstudy(**properties)
+            # yield inputoutput(**properties)
 
 
 

@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_DICT = {
     'Mon': 'Mo',
@@ -52,7 +52,7 @@ class ShopnSaveSpider(scrapy.Spider):
                 "phone": self.phone(store.xpath('td[@class="store-result-phone"]/strong/text()')[0].extract()),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
     def city(self, data):
         str_list = data.split(',')

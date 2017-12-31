@@ -3,7 +3,7 @@ import scrapy
 from scrapy.utils.url import urljoin_rfc
 from scrapy.utils.response import get_base_url
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 import re
 from itertools import groupby
@@ -56,7 +56,7 @@ class WaitroseSpider(scrapy.Spider):
             if opening_hours:
                 opening_hours = self._opening_hours(opening_hours)
                 formatted = opening_hours
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)
 
             branch_map = details[0].xpath(
                 'div[@class="branch-finder-map"]/p/a')[0].root.attrib

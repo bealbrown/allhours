@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class DunhamsSportsSpiders(scrapy.Spider):
         name = "dunhams_sports"
@@ -77,7 +77,7 @@ class DunhamsSportsSpiders(scrapy.Spider):
                 hoursSunString = self.store_hours(match.xpath('.//@hours_sun').extract_first().strip())
                 allHours = "Mo-Fr " + hoursMonString +"; "+ "Sa " + hoursSatString + "; " + "Su "+ hoursSunString
 
-                yield hourstudy(
+                yield inputoutput(
                     ref=refString,
                     lat=float(match.xpath('.//@lat').extract_first().strip()),
                     lon=float(match.xpath('.//@lng').extract_first().strip()),

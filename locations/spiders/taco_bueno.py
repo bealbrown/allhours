@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import re
 import json
 
@@ -79,7 +79,7 @@ class TacobuenoSpider(scrapy.Spider):
                 hours = self.convert_hours(i['businesshours'])
                 # addr_full = "{} {}, {} {}".format(street, city, state, postcode)
 
-                # yield hourstudy(
+                # yield inputoutput(
                 #     ref=ref,
                 #     name=name,
                 #     street=street,
@@ -95,4 +95,4 @@ class TacobuenoSpider(scrapy.Spider):
                 
                 raw = i['businesshours']
                 formatted = hours
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)

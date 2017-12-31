@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 NUMBER_DAY = {
     '1': 'Mo',
@@ -81,4 +81,4 @@ class CaribouCoffeeSpider(scrapy.Spider):
                 'opening_hours': opening_hours
             }
 
-            yield hourstudy(**props)
+            yield inputoutput(**props)

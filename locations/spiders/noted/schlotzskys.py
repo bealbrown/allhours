@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class SchlotzskysSpider(scrapy.Spider):
@@ -52,6 +52,6 @@ class SchlotzskysSpider(scrapy.Spider):
             "postcode": postcode,
             }
         
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
         
         

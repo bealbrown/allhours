@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 day_formats = {
     "Mon": "Mo",
@@ -126,6 +126,6 @@ class MightytacoSpider(scrapy.Spider):
 
             if hours:
                 formatted = hours
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)
 
 

@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 day_formats = {
     "Mon": "Mo", 
@@ -126,7 +126,7 @@ class McDonaldsATSpider(scrapy.Spider):
         if opening_hours:
             properties['opening_hours'] = opening_hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
 
     def parse(self, response):

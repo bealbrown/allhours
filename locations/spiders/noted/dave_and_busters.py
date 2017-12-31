@@ -5,7 +5,7 @@ import re
 
 DAYS=['Mo','Tu','We','Th','Fr','Sa','Su']
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class DaveAndBustersSpider(scrapy.Spider):
     name = "dave_and_busters"
     allowed_domains = ["daveandbusters.com"]
@@ -83,4 +83,4 @@ class DaveAndBustersSpider(scrapy.Spider):
         except Exception as e:
             pos=''
 
-        yield hourstudy(**props)
+        yield inputoutput(**props)

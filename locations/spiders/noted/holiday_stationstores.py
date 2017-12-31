@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class HolidayStationstoreSpider(scrapy.Spider):
@@ -104,4 +104,4 @@ class HolidayStationstoreSpider(scrapy.Spider):
             'opening_hours': self.opening_hours(response),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

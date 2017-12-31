@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 HEADERS = {
     'Accept-Language': 'en-US,en;q=0.9',
@@ -57,7 +57,7 @@ class SevenElevenSpider(scrapy.Spider):
 
             raw = store['hours']['operating']
             formatted = store['hours']['operating']
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
             
         next_url = data['next']
         if next_url is not None:

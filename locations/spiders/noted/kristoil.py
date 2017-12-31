@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class KristoilSpider(scrapy.Spider):
     name = "kristoil"
@@ -55,4 +55,4 @@ class KristoilSpider(scrapy.Spider):
             }
             if value['phone']:
                 properties['phone'] = value['phone']
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

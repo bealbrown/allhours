@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CotoSpider(scrapy.Spider):
@@ -26,7 +26,7 @@ class CotoSpider(scrapy.Spider):
                 mon_thu, fri, sat, sun).replace(' a ', '-')
 
 
-            yield hourstudy(
+            yield inputoutput(
                 ref=ref,
                 lat=lat,
                 lon=lon,

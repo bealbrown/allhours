@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class DollarTreeSpider(scrapy.Spider):
@@ -112,4 +112,4 @@ class DollarTreeSpider(scrapy.Spider):
         if address:
             properties.update(address)
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

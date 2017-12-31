@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class RubiosSpider(scrapy.Spider):
@@ -39,4 +39,4 @@ class RubiosSpider(scrapy.Spider):
             'lat': float(response.xpath('//head/script[9]').extract_first().split('"coordinates":[')[1].split(']')[0].split(',')[1]),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

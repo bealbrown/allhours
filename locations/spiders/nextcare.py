@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = {
     'Monday': 'Mo', 
@@ -94,7 +94,7 @@ class NextcareSpider(scrapy.Spider):
 
         if opening_hours:
             formatted = opening_hours
-            yield hourstudy(raw,formatted)
+            yield inputoutput(raw,formatted)
 
 
 
@@ -102,6 +102,6 @@ class NextcareSpider(scrapy.Spider):
             if unp[key]:
                 properties[key] = unp[key].strip()
 
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
 
 

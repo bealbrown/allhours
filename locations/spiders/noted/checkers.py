@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CheckersSpider(scrapy.Spider):
@@ -137,4 +137,4 @@ class CheckersSpider(scrapy.Spider):
             if latlon:
                 properties.update(latlon)
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

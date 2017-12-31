@@ -2,7 +2,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class McDonaldsFISpider(scrapy.Spider):
@@ -91,4 +91,4 @@ class McDonaldsFISpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

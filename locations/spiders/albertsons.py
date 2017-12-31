@@ -1,7 +1,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_MAPPING = {
     'M': 'Mo',
@@ -42,10 +42,10 @@ class AlbertsonsSpider(scrapy.Spider):
         hours = response.xpath('//div[@class="LocationInfo-right"]/div[1]/div[@class="LocationInfo-hoursTable"]/div[@class="c-location-hours-details-wrapper js-location-hours"]/table/tbody/tr/@content').extract()
         if hours:
             properties['opening_hours'] = " ;".join(hours)
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
         raw = hours
         formatted = " ;".join(hours)
-        yield hourstudy(raw,formatted) 
+        yield inputoutput(raw,formatted) 
 
 
     def parse_city_stores(self ,response):

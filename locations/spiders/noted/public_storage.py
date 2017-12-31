@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class PublicStorageSpider(scrapy.Spider):
@@ -28,4 +28,4 @@ class PublicStorageSpider(scrapy.Spider):
                 "lon": lon,
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

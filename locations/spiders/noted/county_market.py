@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 SIEVE = ('View on Map', 'Make My Preferred Store!')
@@ -51,7 +51,7 @@ class MyCountyMarketSpider(scrapy.Spider):
             'phone': phone,
         }
 
-        yield hourstudy(**props)
+        yield inputoutput(**props)
 
     def parse(self, response):
 

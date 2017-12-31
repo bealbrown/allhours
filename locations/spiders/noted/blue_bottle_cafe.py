@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BlueBottleCafeSpider(scrapy.Spider):
@@ -29,4 +29,4 @@ class BlueBottleCafeSpider(scrapy.Spider):
                     'lat': store_data['latitude'],
                 }
 
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)

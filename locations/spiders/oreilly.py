@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class OreillyAuto(scrapy.Spider):
@@ -67,7 +67,7 @@ class OreillyAuto(scrapy.Spider):
 
         raw = hours
         formatted = opening_hours
-        yield hourstudy(raw, formatted)
+        yield inputoutput(raw, formatted)
 
 
     def parse_city_stores(self, response):

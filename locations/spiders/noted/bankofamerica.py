@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BankOfAmericaSpider(scrapy.Spider):
@@ -37,7 +37,7 @@ class BankOfAmericaSpider(scrapy.Spider):
             )
 
     def parse_center(self, response):
-            yield hourstudy(
+            yield inputoutput(
                 lat=float(response.xpath('//meta[@property="og:latitude"]/@content').extract_first()),
                 lon=float(response.xpath('//meta[@property="og:longitude"]/@content').extract_first()),
                 phone=response.xpath('//meta[@property="og:phone_number"]/@content').extract_first(),

@@ -2,7 +2,7 @@
 import json
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BedBathBeyondSpider(scrapy.Spider):
@@ -85,7 +85,7 @@ class BedBathBeyondSpider(scrapy.Spider):
         if opening_hours:
             properties['opening_hours'] = opening_hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse(self, response):
         urls = response.xpath('//a[@class="c-directory-list-content-item-link"]/@href').extract()

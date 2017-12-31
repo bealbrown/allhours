@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class SheetzSpider(scrapy.Spider):
@@ -27,4 +27,4 @@ class SheetzSpider(scrapy.Spider):
                 'lon': float(store['longitude']),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

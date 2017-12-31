@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class McDonaldsSpider(scrapy.Spider):
@@ -83,4 +83,4 @@ class McDonaldsSpider(scrapy.Spider):
             except:
                 self.logger.exception("Couldn't process opening hours: %s", hours)
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

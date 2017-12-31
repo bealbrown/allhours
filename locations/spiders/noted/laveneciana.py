@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class LavenecianaSpider(scrapy.Spider):
     name = "laveneciana"
     allowed_domains = ["www.laveneciana.com.ar"]
@@ -37,4 +37,4 @@ class LavenecianaSpider(scrapy.Spider):
                 'lat': lat,
                 'lon': lon,
              }
-             yield hourstudy(**properties)
+             yield inputoutput(**properties)

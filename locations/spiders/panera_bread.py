@@ -1,7 +1,7 @@
 import json
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class PaneraBread(scrapy.Spider):
@@ -66,7 +66,7 @@ class PaneraBread(scrapy.Spider):
 
         raw = json.loads(hours)
         formatted = opening_hours
-        yield hourstudy(raw, formatted)
+        yield inputoutput(raw, formatted)
 
     def parse_city(self, city_page):
         locations = city_page.xpath('//h2[@class="c-location-grid-item-title"]').extract()

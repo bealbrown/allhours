@@ -1,6 +1,6 @@
 import json
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class JumboArgentinaSpider(scrapy.Spider):
     name = "jumbo_argentina"
@@ -36,4 +36,4 @@ class JumboArgentinaSpider(scrapy.Spider):
                 'phone': store['Local']['Telefono'].strip(),
             }
             ref += 1
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

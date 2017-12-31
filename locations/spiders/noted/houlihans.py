@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class HoulihansSpider(scrapy.Spider):
@@ -43,7 +43,7 @@ class HoulihansSpider(scrapy.Spider):
             'lon': float(response.xpath('//div/div[@class="location-actions"]/a[@href]').extract_first().split('q=')[1].split('%')[0].split(',')[1]),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         else:
             pass

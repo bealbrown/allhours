@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class MarketBasketSpider(scrapy.Spider):
 
     name = "market_basket"
@@ -82,7 +82,7 @@ class MarketBasketSpider(scrapy.Spider):
         if hours:
             properties['opening_hours'] = hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse_area(self, response):
         city_urls = response.xpath('//ol/li/a/@href|//ul/li/a/@href').extract()

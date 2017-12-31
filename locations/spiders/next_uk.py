@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 
@@ -108,5 +108,5 @@ class NextSpider(scrapy.Spider):
                         'Su': shop['sun_open']+'-'+shop['sun_close'],
                 }
 
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)
 

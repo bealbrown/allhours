@@ -3,7 +3,7 @@ import json
 import re
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 hour_label = ["Mo-Th", "Fr", "Sa", "Su"]
 
@@ -107,6 +107,6 @@ class LarosasSpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
             
 

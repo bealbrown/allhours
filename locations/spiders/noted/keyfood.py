@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 from scrapy.selector import Selector
 
 def opening_hours(datestring):
@@ -124,4 +124,4 @@ class KeyfoodSpider(scrapy.Spider):
                 'lon': float(lon),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

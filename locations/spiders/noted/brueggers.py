@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BrueggersSpider(scrapy.Spider):
@@ -101,4 +101,4 @@ class BrueggersSpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

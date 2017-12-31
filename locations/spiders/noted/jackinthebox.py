@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class JackInTheBoxSpider(scrapy.Spider):
     name = "jackinthebox"
@@ -105,6 +105,6 @@ class JackInTheBoxSpider(scrapy.Spider):
                         ])
                     properties['opening_hours'] = self.opening_hours(days_hours)
                                                                  
-            yield hourstudy(**properties)             
+            yield inputoutput(**properties)             
 
 

@@ -1,5 +1,5 @@
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class BobsSpider(scrapy.Spider):
@@ -37,7 +37,7 @@ class BobsSpider(scrapy.Spider):
 
             addr_full = "{} {}, {} {}".format(street, city, state, postcode)
 
-            yield hourstudy(
+            yield inputoutput(
                 ref=street,
                 city=city,
                 state=state,

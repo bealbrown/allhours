@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class DominosPizzaSpider(scrapy.Spider):
@@ -76,7 +76,7 @@ class DominosPizzaSpider(scrapy.Spider):
     def parse_place(self, response):
         data = json.loads(response.xpath('//script[@type="application/ld+json"]/text()').extract_first())
         time = response.xpath('//dl[@class="list-hours"]/ul/li').extract()
-        yield hourstudy(
+        yield inputoutput(
             lat=float(data['geo']['latitude']),
             lon=float(data['geo']['longitude']),
             phone=data['telephone'],

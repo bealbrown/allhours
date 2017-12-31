@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class TheLearningExperienceSpider(scrapy.Spider):
@@ -33,4 +33,4 @@ class TheLearningExperienceSpider(scrapy.Spider):
             'lat': float(response.xpath('//meta[@name="place:location:latitude"]/@content').extract_first()),
         }
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)

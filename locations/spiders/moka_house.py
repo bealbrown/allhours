@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class MokaHouseSpider(scrapy.Spider):
     name = 'moka_house'
@@ -65,11 +65,11 @@ class MokaHouseSpider(scrapy.Spider):
         #     'opening_hours': opening_hours
         # }
         
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
 
         raw = l_hours
         formatted = opening_hours
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 
     def hasDigit(self, str):

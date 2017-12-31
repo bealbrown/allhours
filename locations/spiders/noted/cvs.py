@@ -1,6 +1,6 @@
 import scrapy
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAY_MAPPING = {
     'M': 'Mo',
@@ -91,7 +91,7 @@ class CVSSpider(scrapy.Spider):
         if hours:
             properties['opening_hours'] = hours
 
-        yield hourstudy(**properties)
+        yield inputoutput(**properties)
 
     def parse_city_stores(self, response):
         stores = response.xpath('//div[@class="each-store"]')

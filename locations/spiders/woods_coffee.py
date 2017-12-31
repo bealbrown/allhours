@@ -1,5 +1,5 @@
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 import re
 
 daysKey = {
@@ -105,4 +105,4 @@ class WoodsCoffeeSpider(scrapy.Spider):
 
                 raw = unfmthours
                 formatted = hoursString
-                yield hourstudy(raw,formatted)
+                yield inputoutput(raw,formatted)

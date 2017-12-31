@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class VillageInnSpider(scrapy.Spider):
@@ -46,7 +46,7 @@ class VillageInnSpider(scrapy.Spider):
 
         raw = hours_text
         formatted = self.hours(hours_text)
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 
     def address(self, data):

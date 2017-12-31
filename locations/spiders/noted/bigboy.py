@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class WalmartSpider(scrapy.Spider):
@@ -26,7 +26,7 @@ class WalmartSpider(scrapy.Spider):
             lat = store.xpath('div[@class="thumbnail"]/div[@itemprop="geo"]/meta[@itemprop="latitude"]/@content')[0].extract()
             lon = store.xpath('div[@class="thumbnail"]/div[@itemprop="geo"]/meta[@itemprop="longitude"]/@content')[0].extract()
 
-            yield hourstudy(
+            yield inputoutput(
                 lat=lat,
                 lon=lon,
                 ref=name,

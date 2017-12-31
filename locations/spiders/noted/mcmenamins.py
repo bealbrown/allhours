@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS = {
     'Monday': 'Mo',
@@ -85,7 +85,7 @@ class McmenaminsSpider(scrapy.Spider):
         address_full = response.xpath('//div[@class="mcm-logo-address"]')[0].xpath('.//a/p/text()').extract_first()
         address_parts = re.match(r"(.{3,}),\s?(.{3,}),\s?(\w{2}) (\d{5})", address_full)
 
-        yield hourstudy(
+        yield inputoutput(
             ref=response.meta.get('ref'),
             website=response.url,
             addr_full=address_parts[1].strip(),

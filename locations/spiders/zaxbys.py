@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 DAYS={
     'Monday':'Mo',
@@ -94,4 +94,4 @@ class ZaxbysSpider(scrapy.Spider):
 
         raw = data['openingHoursSpecification']
         formatted = self.store_hours(data['openingHoursSpecification'])
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)

@@ -1,7 +1,7 @@
 import json
 import re
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 day_formats = {
     "Mon": "Mo", 
@@ -169,11 +169,11 @@ class TopsSpider(scrapy.Spider):
         #     'lat': response.meta['lat']
         # }
 
-        # yield hourstudy(**properties)
+        # yield inputoutput(**properties)
 
         raw = hours[0]
         formatted = self.process_hours(hours[0])
-        yield hourstudy(raw,formatted)
+        yield inputoutput(raw,formatted)
 
 
     def parse(self, response):

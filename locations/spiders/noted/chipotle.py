@@ -25,7 +25,7 @@ this is the first point to look.
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 def build_links(tld, region_code, states):
@@ -162,7 +162,7 @@ class ChipotleSpider(scrapy.Spider):
                                   "extras": {"fax": self.process_phone(fax)},
                                   "lon": float(longitude),
                                   "lat": float(latitude)}
-                    yield hourstudy(**properties)
+                    yield inputoutput(**properties)
 
     def process_phone(self, phone_number):
         """

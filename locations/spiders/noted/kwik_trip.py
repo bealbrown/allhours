@@ -1,5 +1,5 @@
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class KwikTripSpider(scrapy.Spider):
@@ -27,7 +27,7 @@ class KwikTripSpider(scrapy.Spider):
             lon = i.xpath('./td[9]/text()').extract_first()
             addr_full = "{} {}, {} {}".format(street, city, state, postcode)
 
-            yield hourstudy(
+            yield inputoutput(
                 ref=storeid,
                 name=name,
                 street=street,

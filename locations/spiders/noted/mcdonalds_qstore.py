@@ -2,7 +2,7 @@
 import scrapy
 import re
 import json
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class McDonalsQStoreSpider(scrapy.Spider):
@@ -97,4 +97,4 @@ class McDonalsQStoreSpider(scrapy.Spider):
             if opening_hours:
                 properties['opening_hours'] = opening_hours
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

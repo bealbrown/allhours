@@ -1,7 +1,7 @@
 import json
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class CoopFoodSpider(scrapy.Spider):
@@ -37,7 +37,7 @@ class CoopFoodSpider(scrapy.Spider):
                 "phone": store["phone"],
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)
 
         if data['next'] is not None:
             self.page_number = self.page_number + 1

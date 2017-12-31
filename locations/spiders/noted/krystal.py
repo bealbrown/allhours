@@ -1,6 +1,6 @@
 import json
 import scrapy
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
@@ -82,7 +82,7 @@ class KrystalSpider(scrapy.Spider):
                     'lon': store_infor['lng'],
                     'opening_hours': opening_hours
                 }
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)
 
 
     def start_requests(self):

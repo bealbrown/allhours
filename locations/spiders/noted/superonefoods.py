@@ -2,7 +2,7 @@
 import json
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class SuperonefoodsSpider(scrapy.Spider):
@@ -27,7 +27,7 @@ class SuperonefoodsSpider(scrapy.Spider):
 
         # loop through json data object and retrieve values; yield the values to hourstudy
         for item in jsondata:
-            yield hourstudy(
+            yield inputoutput(
                 ref=item.get('_id'),
                 lat=float(item.get('latitude')),
                 lon=float(item.get('longitude')),

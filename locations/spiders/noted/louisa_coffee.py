@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class LouisaCoffeeSpider(scrapy.Spider):
@@ -22,4 +22,4 @@ class LouisaCoffeeSpider(scrapy.Spider):
                 'lat': float(location_href.xpath('@rel-store-lat').extract_first()),
             }
 
-            yield hourstudy(**properties)
+            yield inputoutput(**properties)

@@ -12,7 +12,7 @@ DAYS={
     'Saturday':'Sa',
     'Sunday':'Su',
 }
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 class RiteaidPizzaSpider(scrapy.Spider):
     name = "riteaid"
     allowed_domains = ["riteaid.com"]
@@ -98,7 +98,7 @@ class RiteaidPizzaSpider(scrapy.Spider):
             hours=json.loads(response.xpath('//div[contains(@class,"c-location-hours-details-wrapper")]/@data-days').extract_first())
         else: 
             hours=json.loads(response.xpath('//div[@class="Hours-store"]//div[contains(@class,"c-location-hours-details-wrapper")]/@data-days').extract_first())
-        yield hourstudy(
+        yield inputoutput(
             lat=float(response.xpath('//meta[contains(@itemprop,"latitude")]/@content').extract_first()),
             lon=float(response.xpath('//meta[contains(@itemprop,"longitude")]/@content').extract_first()),
             phone=self.phone_normalize(response.xpath('//span[contains(@itemprop,"telephone")]/text()').extract_first()),

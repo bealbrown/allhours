@@ -3,7 +3,7 @@ import scrapy
 import json
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class ApplebeesSpider(scrapy.Spider):
@@ -96,9 +96,9 @@ class ApplebeesSpider(scrapy.Spider):
         json_data = json_data.replace('// if the location file does not have the hours separated into open/close for each day, remove the below section', '')
         data = json.loads(json_data)
 
-        yield hourstudy(data['openingHoursSpecification'],self.store_hours(data['openingHoursSpecification']))
+        yield inputoutput(data['openingHoursSpecification'],self.store_hours(data['openingHoursSpecification']))
 
-        # yield hourstudy(
+        # yield inputoutput(
         #     lat=float(data['geo']['latitude']),
         #     lon=float(data['geo']['longitude']),
         #     phone=data['telephone'],

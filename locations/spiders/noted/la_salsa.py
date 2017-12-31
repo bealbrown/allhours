@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class LaSalsaSpider(scrapy.Spider):
@@ -13,7 +13,7 @@ class LaSalsaSpider(scrapy.Spider):
 
     def parse(self, response):
         for match in response.xpath("//markers/marker"):
-            yield hourstudy(
+            yield inputoutput(
                 ref=match.xpath('.//@name').extract_first(),
                 lat=float(match.xpath('.//@latitude').extract_first()),
                 lon=float(match.xpath('.//@longitude').extract_first()),

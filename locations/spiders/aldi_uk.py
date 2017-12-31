@@ -3,7 +3,7 @@ import scrapy
 import re
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 class AldiUKSpider(scrapy.Spider):
     name = "aldiuk"
@@ -44,4 +44,4 @@ class AldiUKSpider(scrapy.Spider):
 
         raw = str(data['seoData']['openingHours'])
         formatted = str(data['seoData']['openingHours']).replace('[','').replace(']','').replace("'",'')
-        yield hourstudy(raw,formatted) 
+        yield inputoutput(raw,formatted) 

@@ -2,7 +2,7 @@
 import scrapy
 import re
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 DAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 
 
@@ -24,7 +24,7 @@ class IgaSpider(scrapy.Spider):
             if phone:
                 phone = phone.replace('- Main', '').strip()
 
-            yield hourstudy(
+            yield inputoutput(
                 lat=float(position[1]),
                 lon=float(position[2]),
                 phone=phone,

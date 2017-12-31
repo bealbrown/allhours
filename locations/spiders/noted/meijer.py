@@ -2,7 +2,7 @@
 import scrapy
 import json
 import re
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 STATES = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
           'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
@@ -56,7 +56,7 @@ class MeijerSpider(scrapy.Spider):
                 
                 n = n + 1
                 
-                yield hourstudy(**properties)
+                yield inputoutput(**properties)
 
     def hours(self, data):
         if data == 'Open 24 hrs a day, 364 days a year.':

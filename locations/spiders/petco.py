@@ -2,7 +2,7 @@
 import scrapy
 import json
 
-from locations.items import hourstudy
+from locations.hourstudy import inputoutput
 
 
 class PetcoSpider(scrapy.Spider):
@@ -78,5 +78,5 @@ class PetcoSpider(scrapy.Spider):
         if opening_hours:
             raw = store_data['openingHours']
             formatted = opening_hours
-            yield hourstudy(raw, formatted)
+            yield inputoutput(raw, formatted)
 
